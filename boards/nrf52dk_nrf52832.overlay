@@ -16,3 +16,9 @@
 		spi-max-frequency = <125000>;
 	};
 };
+
+/ {
+     aliases {
+             lora0 = &lora0;
+     };
+};
