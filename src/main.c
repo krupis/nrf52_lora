@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <zephyr/sys/util.h>
 #include <zephyr/kernel.h>
+#include <zephyr/drivers/gpio.h>
 
 #define DEFAULT_RADIO_NODE DT_ALIAS(lora0)
 BUILD_ASSERT(DT_NODE_HAS_STATUS(DEFAULT_RADIO_NODE, okay),
@@ -22,6 +23,8 @@ LOG_MODULE_REGISTER(lora_send);
 
 char data[MAX_DATA_LEN] = {'h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd'};
 
+
+
 int main(void)
 {
 	const struct device *const lora_dev = DEVICE_DT_GET(DEFAULT_RADIO_NODE);
@@ -32,6 +35,8 @@ int main(void)
 		LOG_ERR("%s Device not ready", lora_dev->name);
 		return 0;
 	}
+	printf("device is ready \n");
+	k_sleep(K_MSEC(20));
 
 	config.frequency = 433000000;
 	config.bandwidth = BW_125_KHZ;
@@ -43,11 +48,15 @@ int main(void)
 	config.tx_power = 4;
 	config.tx = true;
 
+
+	printf("lora config \n");
 	ret = lora_config(lora_dev, &config);
 	if (ret < 0) {
 		LOG_ERR("LoRa config failed");
 		return 0;
 	}
+	k_sleep(K_MSEC(10));
+	printf("entering while loop \n");
 
 	while (1) {
 		ret = lora_send(lora_dev, data, MAX_DATA_LEN);
@@ -55,7 +64,6 @@ int main(void)
 			LOG_ERR("LoRa send failed");
 			return 0;
 		}
-
 		LOG_INF("Data sent!");
 
 		/* Send data at 1s interval */
