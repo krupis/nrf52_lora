@@ -1,9 +1,9 @@
 {
   "nrf-connect.topdir": "${nrf-connect.sdk:2.4.0}",
   "nrf-connect.toolchain.path": "${nrf-connect.toolchain:2.4.0}",
-  "sonarlint.pathToCompileCommands": "${workspaceFolder}/build_1\\compile_commands.json",
   "files.associations": {
     "lora.h": "c",
     "device.h": "c"
-  }
+  },
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/build_2\\compile_commands.json"
 }
