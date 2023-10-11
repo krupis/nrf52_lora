@@ -6,8 +6,8 @@ This project is for testing the LoRa send/receive using various nRF52 developmen
 
 ![image1](https://ibb.co/51S1c7Q)
 
-![image2](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![image2](https://github.com/krupis/nrf52_lora/blob/master/img/NRF52_Lora_cell.pdf)
 
 ![image3](img/NRF52_Lora_cell.pdf?raw=true "Title")
 
-![image4](img/NRF52_Lora_cell.pdff)
+![image4](img/NRF52_Lora_cell.pdf)
