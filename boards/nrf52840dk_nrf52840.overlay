@@ -9,9 +9,7 @@
 		compatible = "semtech,sx1276";
 		reg = <0>;
 		reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
-		dio-gpios = <&gpio0 24 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>,
-					<&gpio0 22 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>,
-					<&gpio0 17 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+		dio-gpios = <&gpio1 5 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
 		power-amplifier-output = "pa-boost";
 		spi-max-frequency = <125000>;
 	};

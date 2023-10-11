@@ -36,7 +36,7 @@ int main(void)
 		return 0;
 	}
 	printf("device is ready \n");
-	k_sleep(K_MSEC(20));
+	k_sleep(K_MSEC(200));
 
 	config.frequency = 433000000;
 	config.bandwidth = BW_125_KHZ;
@@ -49,14 +49,12 @@ int main(void)
 	config.tx = true;
 
 
-	printf("lora config \n");
 	ret = lora_config(lora_dev, &config);
 	if (ret < 0) {
 		LOG_ERR("LoRa config failed");
 		return 0;
 	}
-	k_sleep(K_MSEC(10));
-	printf("entering while loop \n");
+	k_sleep(K_MSEC(100));
 
 	while (1) {
 		ret = lora_send(lora_dev, data, MAX_DATA_LEN);
@@ -67,7 +65,7 @@ int main(void)
 		LOG_INF("Data sent!");
 
 		/* Send data at 1s interval */
-		k_sleep(K_MSEC(1000));
+		k_sleep(K_MSEC(5000));
 	}
 	return 0;
 }
