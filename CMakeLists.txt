@@ -7,3 +7,6 @@ project(lora_send)
 
 FILE(GLOB app_sources src/*.c)
 target_sources(app PRIVATE ${app_sources})
+
+target_sources(app PRIVATE components/lora/lora.c)
+target_include_directories(app PRIVATE components/lora)
