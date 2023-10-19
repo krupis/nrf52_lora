@@ -5,5 +5,5 @@
     "lora.h": "c",
     "device.h": "c"
   },
-  "sonarlint.pathToCompileCommands": "${workspaceFolder}/build_2\\compile_commands.json"
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/Adafruit_feather_nrf52840\\compile_commands.json"
 }
