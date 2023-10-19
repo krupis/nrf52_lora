@@ -10,7 +10,6 @@
 
 
 void Setup_LoRa_send_thread(void *param);
-void print_thread(void *param);
 bool Initialize_LoRa(bool mode);
 
 void Setup_LoRa_receive();

@@ -26,11 +26,11 @@ bool Initialize_LoRa(bool mode){
 	int ret;
 
 	if (!device_is_ready(lora_dev)) {
-		printk("Device is not ready %s \n",lora_dev->name);
+		LOG_ERR("LoRa device is not ready\n");
         return 0;
 	}
 
-	printk("device is ready \n");
+	LOG_INF("LoRa device is ready\n");
 	k_sleep(K_MSEC(200));
 
 	config.frequency = 433000000;
@@ -46,7 +46,7 @@ bool Initialize_LoRa(bool mode){
 
 	ret = lora_config(lora_dev, &config);
 	if (ret < 0) {
-		printk("LoRa config failed\n");
+		LOG_ERR("LoRa config failed\n");
         return 0;
 	}
     return 1;
@@ -60,22 +60,17 @@ void Setup_LoRa_send_thread(void *param)
 	while (1) {
 		ret = lora_send(lora_dev, data, MAX_DATA_LEN);
 		if (ret < 0) {
-			printk("LoRa send failed, try again in 5 seconds\n");
+			LOG_WRN("LoRa send failed, try again in 5 seconds \n ");
 		}
 		else{
-			printk("Data sent! \n");
+			LOG_INF("Data sent! \n ");
+
 		}
 		k_sleep(K_MSEC(5000));
 	}
 }
 
-void print_thread(void *param)
-{
-	while (1) {
-		printk("hello from thread \n");
-		k_sleep(K_MSEC(5000));
-	}
-}
+
 
 
 
