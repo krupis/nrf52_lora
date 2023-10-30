@@ -7,10 +7,11 @@
 #include <zephyr/device.h>
 #include <zephyr/kernel.h>
 
-
+#ifdef CONFIG_USB_DEVICE_STACK
 #include <zephyr/usb/usb_device.h>
 #include <zephyr/usb/usbd.h>
 #include <zephyr/drivers/uart.h>
+#endif
 
 
 // Lora stuff
@@ -25,10 +26,11 @@ LOG_MODULE_REGISTER(main);
 int main(void)
 {
 	
-
+	#ifdef CONFIG_USB_DEVICE_STACK
 	if (usb_enable(NULL)) {
 		return 0;
 	}
+	#endif
 
 	
 	//tx

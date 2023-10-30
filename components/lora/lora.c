@@ -87,11 +87,6 @@ void lora_receive_cb(const struct device *dev, uint8_t *data, uint16_t size,
 	LOG_INF("Received data: %s (RSSI:%ddBm, SNR:%ddBm)",
 		data, rssi, snr);
 
-	/* Stop receiving after 10 packets */
-	if (++cnt == 10) {
-		LOG_INF("Stopping packet receptions");
-		lora_recv_async(dev, NULL);
-	}
 }
 
 void Setup_LoRa_receive()
