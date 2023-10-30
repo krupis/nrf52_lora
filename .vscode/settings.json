@@ -6,5 +6,5 @@
     "device.h": "c",
     "usb_device.h": "c"
   },
-  "sonarlint.pathToCompileCommands": "${workspaceFolder}/Adafruit_feather_nrf52840\\compile_commands.json"
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/nRF52DK_nRF52840\\compile_commands.json"
 }
